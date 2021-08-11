@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "To-Do";
+}
+
+
+
+<div>
+    <div ng-app="TaskManager">
+        <div class=" task-add">
+            <div class="content" ng-controller="taskController">
+
+                <div class="col-sm-12" style="display:inline-block">
+                    <div class="cont_titulo_cont">
+                        <h3>TO DO</h3>
+                    </div>
+                    <div class="cont_add_titulo_cont">
+                        <a href="#" data-toggle="modal" data-target="#todoModal"><i class="fa fa-plus"></i></a>
+                    </div>
+
+                </div>
+                <br />
+                <br />
+
+                <div class="col-sm-12" id="newTaskModel">
+                    <ul class="taskList">
+                        <li class="list_shopping li_num_0_1" ng-if="newTasks.length>0" ng-repeat="model in newTasks" ng-model="newTasks">
+                            <div class="col_md_1_list col-sm-3">
+                                <p ng-bind="model.dueDate | date:'dd/MM/yyyy'"></p>
+                            </div>
+                            <div class="col_md_2_list col-sm-6">
+                                <h4>{{model.title}}</h4>
+                                <p>{{model.content}}</p>
+                            </div>
+                            <div class="col_md_3_list col-sm-3">
+                                <div>
+                                    <p>{{model.assignedToUser.name}}</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li ng-if="newTasks.length==0">
+                            <div class="text-center">There is no task!</div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- taskList -->
+                <div class="modal fade" id="todoModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="lineModalLabel">Add New Task</h3>
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-row container" name="newTask">
+                                    <div class=" col-sm-12 form-group">
+                                        <label for="title">Title</label>
+                                        <input type="text" id="title" required class=" form-control" placeholder="Title" ng-model="newTask.Title">
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 form-group">
+                                        <label for="category">Assign</label>
+                                        <select name="user" id="assignSelect" required class="form-control" ng-model="newTask.Assign">
+                                            <option ng-repeat="option in newTask.users" data-name="{{option.name}}" value="{{option.id}}">{{option.name}}</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="col-sm-12 col-lg-6 form-group">
+                                        <label for="dueDate">Due Date</label>
+                                        <input type="date" id="dueDate" class="taskDate form-control" ng-model="newTask.DueDate">
+                                    </div>
+                                    <div class="col-sm-12 form-group">
+                                        <label for="description">Description</label>
+                                        <textarea rows="3" required id="description" class="taskName form-control" placeholder="What do you need to do?" ng-model="newTask.Content"></textarea>
+                                    </div>
+                                    <div class="col-sm-12 alert alert-danger" ng-if="error!=''">
+                                        <span>{{error}}</span>
+                                    </div>
+
+                                    <div class="form-group col-sm-12">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <button class="taskAdd btn btn-info" ng-disabled="disableBtn" ng-click="addNew()">
+                                                <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                                Add
+                                            </button>
+                                            <button class="taskCancel btn btn-danger" ng-disabled="disableBtn" data-dismiss="modal" ng-click="cancelTask()">Cancel</button>
+                                        }
+                                        else
+                                        {
+                                            <div class="alert alert-danger ">
+                                                <label>You have to login for add new task!</label>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- content -->
+
+        </div><!-- container -->
+
+    </div>
+</div>
+
+<!-- line modal -->
+
+
+
+@section Styles{
+    <link href="~/css/todo.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/js/todoform.js"></script>
+}

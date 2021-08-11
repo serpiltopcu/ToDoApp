@@ -1,0 +1,9 @@
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\bin\Debug\netcoreapp3.1\ToDoApp.Persistence.deps.json
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\bin\Debug\netcoreapp3.1\ToDoApp.Persistence.dll
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\bin\Debug\netcoreapp3.1\ToDoApp.Persistence.pdb
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.csprojAssemblyReference.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.AssemblyInfoInputs.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.AssemblyInfo.cs
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.dll
+C:\Users\topcu\source\repos\ToDoApp\src\Infrastructure\ToDoApp.Persistence\obj\Debug\netcoreapp3.1\ToDoApp.Persistence.pdb

@@ -1,0 +1,6 @@
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\obj\Debug\netcoreapp3.1\ToDoApp.Domain.csprojAssemblyReference.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\obj\Debug\netcoreapp3.1\ToDoApp.Domain.csproj.CoreCompileInputs.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\obj\Debug\netcoreapp3.1\ToDoApp.Domain.AssemblyInfoInputs.cache
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\obj\Debug\netcoreapp3.1\ToDoApp.Domain.AssemblyInfo.cs
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\bin\Debug\netcoreapp3.1\ToDoApp.Domain.deps.json
+C:\Users\topcu\source\repos\ToDoApp\src\Core\ToDoApp.Domain\bin\Debug\netcoreapp3.1\ToDoApp.Domain.dll
